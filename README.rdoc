@@ -1,0 +1,7 @@
+= rSquery
+
+Description goes here.
+
+== Copyright
+
+Copyright (c) 2009 Ivo. See LICENSE for details.
