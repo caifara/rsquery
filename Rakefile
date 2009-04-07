@@ -6,9 +6,9 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = "rSquery"
     gem.summary = %Q{TODO}
-    gem.email = "ivo.dancet@gmail.com"
+    gem.email = "ivo.dancet@by2.be"
     gem.homepage = "http://github.com/caifara/rSquery"
-    gem.authors = ["Ivo"]
+    gem.authors = ["Ivo Dancet"]
 
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
@@ -46,3 +46,16 @@ Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
 
+
+task :test_server do
+  system("cd test; thin -R ../features/support/static.ru -p 3002  start")
+end
+
+# cucumber
+
+$:.unshift(File.dirname(__FILE__) + '/../../lib')
+require 'cucumber/rake/task'
+ 
+Cucumber::Rake::Task.new do |t|
+  t.cucumber_opts = "--format pretty"
+end
