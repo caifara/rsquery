@@ -1,7 +1,3 @@
-$(document).ready(function(){
-  
-})
-
 function addText(){
   $("#container").append("some_text");
 }
