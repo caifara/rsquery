@@ -11,7 +11,7 @@ query - jQuery
 
 == History
 
-The projects origin lies in a project I work on at by2.be which makes use of jQuery for most of its tasks. Selenium tests were the only way to test this bugger (as webrat isn't an option to test js actions) and these tests were taking all the speed and fun out of the project. Testing with jquery matchers instead of those provided by selenium sounded very handy and after some hours of frustration we hacked these few lines together and because of the enormous speed enhancements in writing tests I decided to wrap things up in a gem and release them to whoever would like to use jquery matchers in an easy way to handle tests.
+The projects origin lies in a project we work on at by2.be which makes use of jQuery for most of its tasks. Selenium tests were the only way to test this bugger (as webrat isn't an option to test js actions) and these tests were taking all the speed and fun out of the project. Testing with jquery matchers instead of those provided by selenium sounded very handy and after some hours of frustration we hacked these few lines together and because of the enormous speed enhancements in writing tests I decided to wrap things up in a gem and release them to whoever would like to use jquery matchers in an easy way to handle tests.
 
 == How it works
 
@@ -66,4 +66,4 @@ Run the features (rake features)
 
 == Copyright
 
-Copyright (c) 2009 Ivo Dancet, by2.be. See LICENSE for details.
+Copyright (c) 2009 Ivo Dancet & Wouter Vancraeynest, by2.be. See LICENSE for details.
