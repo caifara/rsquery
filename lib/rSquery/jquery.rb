@@ -32,11 +32,11 @@ class JQ
   end
   
   def wait_for_visible
-    @selenium.wait_for_visible( @basic_command )
+    @selenium.wait_for_visible(@basic_command)
   end
   
   def wait_for_invisible
-    @selenium.wait_for_invisible( @basic_command )
+    @selenium.wait_for_invisible(@basic_command)
   end
 end
 
