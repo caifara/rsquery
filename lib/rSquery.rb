@@ -1,4 +1,5 @@
 require "rubygems"
+
 require "spec"
 require "selenium/client"
 

@@ -15,28 +15,29 @@ The projects origin lies in a project we work on at by2.be which makes use of jQ
 
 == How it works
 
-The source code is so short it should speek for itself but let me explain the concept:
+The source code is so short it should speak for itself but let me explain the concept:
 
 Everything works around a central jquery matcher you call with 'jquery(matcher)'. If you leave out 'matcher' the matcher returns the whole document.
 
-The matcher must match exactly one element or it will raise an error. This behaviour makes testing easier for me, but I'm still in search of a better idea here. For now it does the job.
+The matcher must match exactly one element or it will raise an error. This behaviour makes testing easier for me, but I'm still in search for a better idea here. For now it does the job.
 
 You can call methods upon the matched jquery object: 'wait_for_element(matcher)', 'wait_for_text(text)', 'wait_for_visible', 'wait_for_invisible'.
 
-Other methods will call that same method upon the jquery. Example: jquery("=content").html will call '$("=content").html()' in the page you're testing and return what that method returns.
+Other methods will call that same method upon the jquery. Example: jquery("#content").html will call '$("#content").html()' in the page you're testing and return what that method returns.
 
 == Examples
 
 Using the gem in a project with jquery you can use lines like these inside tests:
 
-- jquery("=content").wait_for_visible
-- jquery("=dialog button:contains(Ok)").click
+- jquery("#content").wait_for_visible
+- jquery("#dialog button:contains(Ok)").click
 - jquery.wait_for_text("User saved...")
 - jquery.wait_for_element(".some_element")
-- jquery("=dialog div").text.should have_text(/some_text/)
-- jquery("=dialog").html.should have_tag("button", "Ok")
-- jquery("=dialog").should be_visible
-- jquery("=dialog") # page must have an element with id 'dialog'
+- jquery("#dialog div").text.should have_text(/some_text/)
+- jquery("#dialog").find(".warning")
+- jquery("#dialog").html.should have_tag("button", "Ok")
+- jquery("#dialog").should be_visible
+- jquery("#dialog") # page must have an element with id 'dialog'
 
 == Pitfalls
 
@@ -58,7 +59,7 @@ In order to run the tests as described you'll need:
 - rack
 - jeweller (sudo gem install technicalpickles-jeweler -s http://gems.github.com)
 
-A directory called test contains the html page on which the featues will run. To start a webserver in this directory you can use thin. cd to the test-dir and run 'thin -R ../features/support/static.ru -p 3002 start'.
+A directory called test contains the html page on which the features will run. To start a webserver in this directory you can use thin. cd to the test-dir and run 'thin -R ../features/support/static.ru -p 3002 start'.
 
 Run selenium in another terminal 'selenium -singleWindow -browserSessionreuse' should be ideal.
 

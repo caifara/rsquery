@@ -38,6 +38,11 @@ When /^waiting for an element to appear$/ do
   jquery.wait_for_element("#new_element")
 end
 
+When /^waiting for an element to disappear$/ do
+  selenium.execute_js("setTimeout('removeElement()', 1000)")
+  jquery.wait_for_no_element("#container")
+end
+
 When /^waiting for an element to turn visible$/ do
   selenium.execute_js("setTimeout('makeVisible()', 1000)")
   jquery("#hidden").wait_for_visible
@@ -78,6 +83,10 @@ Then /^the element is on the page$/ do
   jquery("#new_element")
 end
 
+Then /^the element is not on the page$/ do
+  jquery.find("#container").should be_empty
+end
+
 Then /^the text is on the page$/ do
   jquery.text.should include("some_text")
 end
@@ -86,8 +95,8 @@ Then /^it returns correct information$/ do
   @result.should be nil
 end
 
-Then /^it crashes$/ do
-  @result.to_s.should include("none or too many elements found.")
+Then /^it shows the error "(.*)"$/ do |error|
+  @result.to_s.should include(error)
 end
 
 Then /^it matches$/ do
