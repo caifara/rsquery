@@ -10,8 +10,10 @@ class JQ
   end
   
   def check_me
-    if @selenium.execute_js("#{@basic_command}.length != '1'") == "true"
-      raise "'#{@jquery_matcher}' none or too many elements found."
+    if @selenium.execute_js("#{@basic_command}.length == '0'") == "true"
+      raise "'#{@jquery_matcher}' no elements found."
+    elsif @selenium.execute_js("#{@basic_command}.length > '1'") == "true"
+      raise "'#{@jquery_matcher}' too many elements found." 
     end
   end
   
@@ -28,6 +30,11 @@ class JQ
   
   def wait_for_element(element)
     condition = "#{@basic_command}.find('#{element}').length > 0"
+    @selenium.wait_for_js("#{condition}")
+  end
+  
+  def wait_for_no_element(element)
+    condition = "#{@basic_command}.find('#{element}').length == 0"
     @selenium.wait_for_js("#{condition}")
   end
   

@@ -10,12 +10,12 @@ Feature: using jquery for selenium actions and tests
   Scenario: Trying to match an element that is not on the page
     When matching a non-existing element
     
-    Then it crashes
+    Then it shows the error "no elements found."
     
   Scenario: Trying to get an element that appears twice on the page
     When matching an element that appears twice on the page
     
-    Then it crashes
+    Then it shows the error "too many elements found."
   
   Scenario: Getting information about a visible element
     When testing the (in)visibility of an object
@@ -31,7 +31,12 @@ Feature: using jquery for selenium actions and tests
     When waiting for an element to appear
     
     Then the element is on the page
+  
+  Scenario: Waiting for an element to disappear
+    When waiting for an element to disappear
     
+    Then the element is not on the page
+  
   Scenario: Waiting for an element to turn visible
     When waiting for an element to turn visible
     
