@@ -52,6 +52,12 @@ Using the gem in a project with jquery you can use lines like these inside tests
 
 == testing
 
+In order to run the tests as described you'll need:
+- selenium-client >= 1.2.14
+- thin
+- rack
+- jeweller (sudo gem install technicalpickles-jeweler -s http://gems.github.com)
+
 A directory called test contains the html page on which the featues will run. To start a webserver in this directory you can use thin. cd to the test-dir and run 'thin -R ../features/support/static.ru -p 3002 start'.
 
 Run selenium in another terminal 'selenium -singleWindow -browserSessionreuse' should be ideal.

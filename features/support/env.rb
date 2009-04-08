@@ -1,13 +1,15 @@
-#require File.expand_path(File.dirname(__FILE__) + '/helper.rb')
+gem "selenium-client", ">=1.2.14"
+
+require "selenium/client"
 
 require File.expand_path(File.dirname(__FILE__) + '/../../lib/rSquery.rb')
 
-$browser = Selenium::Client::Driver.new \
+$browser = Selenium::Client::Driver.new(
           :host => "localhost",
           :port => 4444,
           :browser => "*firefox",
           :url => "http://localhost:3002",
-          :timeout_in_second => 60 
+          :timeout_in_second => 60 )
 $browser.start_new_browser_session
 
 def selenium
@@ -19,8 +21,4 @@ Before do
 end
  
 After do
-end
-
-at_exit do
-  selenium.stop
 end
