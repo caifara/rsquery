@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ivo Dancet"]
-  s.date = %q{2009-04-07}
+  s.date = %q{2009-04-17}
   s.email = %q{ivo.dancet@by2.be}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -31,6 +31,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/caifara/rSquery}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
+  s.requirements = ["rspec", "selenium/client"]
   s.rubygems_version = %q{1.3.1}
   s.summary = %q{TODO}
   s.test_files = [
