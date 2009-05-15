@@ -1,6 +1,6 @@
 = rSquery
 
-This project aims to reduce the difficulties involved in writing selenium tests in rspec environments for webapps that use jquery.
+This project aims to reduce the difficulties involved in writing selenium tests in rspec environments for webapps that use jQuery.
 
 The project contains several methods to help you with writing javascript commands for selenium and javascript based tests for cucumber or maybe even rSpec.
 
@@ -11,7 +11,7 @@ query - jQuery
 
 == History
 
-The project's origin lies in a project we work on at by2.be which makes use of jQuery for most of its tasks. Selenium tests were the only way to test this bugger (as webrat isn't an option to test js actions) and these tests were taking all the speed and fun out of the project. Testing with jquery matchers instead of those provided by selenium sounded very handy and after some hours of frustration we hacked these few lines together and because of the enormous speed enhancements in writing tests I decided to wrap things up in a gem and release them to whoever would like to use jquery matchers in an easy way to handle tests.
+The project's origin lies in a project we work on at by2.be which makes use of jQuery for most of its tasks. Selenium tests were the only way to test this application (as webrat isn't an option to test js actions) and writing these tests were taking all the speed and fun out of the project. Testing with jquery matchers instead of those provided by selenium sounded very handy and after some hours of frustration we hacked these few lines together and because  we noticed enormous speed enhancements in writing tests, I decided to wrap things up in a gem and release it to whoever would like to use jQuery matchers in an easy way to handle tests.
 
 == How it works
 
@@ -21,13 +21,13 @@ Everything works around a central jquery matcher you call with 'jquery(matcher)'
 
 The matcher must match exactly one element or it will raise an error. This behaviour makes testing easier for me, but I'm still in search for a better idea here. For now it does the job.
 
-You can call methods upon the matched jquery object: 'wait_for_element(matcher)', 'wait_for_text(text)', 'wait_for_visible', 'wait_for_invisible'.
+You can call methods upon the matched jquery object: 'wait_for_element(matcher)', 'wait_for_no_element(matcher), 'wait_for_text(text)', 'wait_for_visible', 'wait_for_invisible'.
 
-Other methods will call that same method upon the jquery. Example: jquery("#content").html will call '$("#content").html()' in the page you're testing and return what that method returns.
+Other methods will call that same method upon the jQuery wrapper. Example: jquery("#content").html will call '$("#content").html()' in the page you're testing and return whatever that method returns as a string.
 
 == Examples
 
-Using the gem in a project with jquery you can use lines like these inside tests:
+Using the gem in a project with jQuery enables tests like:
 
 - jquery("#content").wait_for_visible
 - jquery("#dialog button:contains(Ok)").click
@@ -39,6 +39,13 @@ Using the gem in a project with jquery you can use lines like these inside tests
 - jquery("#dialog").should be_visible
 - jquery("#dialog") # page must have an element with id 'dialog'
 
+== Install
+
+- if you didn't run this allready: gem sources -a http://gems.github.com
+- sudo gem install caifara-rSquery
+
+- in features/support/selenium_env.rb add `require "rSquery"`
+
 == Pitfalls
 
 - rSquery only works if jquery is activated on the page you test (obviously).
@@ -46,10 +53,10 @@ Using the gem in a project with jquery you can use lines like these inside tests
 
 == requirements
 
-- rspec
-- cucumber
-- webapp using jquery
-- selenium-client
+- rspec (gem)
+- cucumber (gem)
+- webapp using jQuery
+- selenium-client (gem)
 
 == testing
 
@@ -61,7 +68,7 @@ In order to run the tests as described you'll need:
 
 A directory called test contains the html page on which the features will run. To start a webserver in this directory you can use thin. cd to the test-dir and run 'thin -R ../features/support/static.ru -p 3002 start'.
 
-Run selenium in another terminal 'selenium -singleWindow -browserSessionreuse' should be ideal.
+Run selenium in another terminal. 'selenium -singleWindow -browserSessionreuse' should be ideal.
 
 Run the features (rake features)
 
