@@ -28,7 +28,7 @@ Other methods will call that same method upon the jQuery wrapper. Example: jquer
 
 == Examples
 
-Using the gem in a project with jQuery enables tests like:
+Using the gem in a project with jQuery enables stuff like:
 
 - jquery("#content").wait_for_visible
 - jquery("#dialog button:contains(Ok)").click
