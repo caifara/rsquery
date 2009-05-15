@@ -5,9 +5,10 @@ This project aims to reduce the difficulties involved in writing selenium tests 
 The project contains several methods to help you with writing javascript commands for selenium and javascript based tests for cucumber or maybe even rSpec.
 
 == What does the name stand for:
-r - rspec
-S - Selenium
-query - jQuery
+
+- r - rspec
+- S - Selenium
+- query - jQuery
 
 == History
 
