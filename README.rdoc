@@ -1,6 +1,6 @@
 = rSquery
 
-This project aims to reduce the difficulties involved in writing selenium tests in rspec environments for webapps that use jQuery.
+This project aims to reduce the difficulties involved in writing selenium tests in cucumber environments for webapps that use jQuery.
 
 The project contains several methods to help you with writing javascript commands for selenium and javascript based tests for cucumber or maybe even rSpec.
 
