@@ -3,7 +3,7 @@ class JQ
   attr_accessor :selenium
   
   def initialize(jquery_matcher, selenium)
-    @jquery_matcher = jquery_matcher
+    @jquery_matcher = jquery_matcher.gsub(/'/, "\"")
     @selenium = selenium
     @basic_command = "$('#{@jquery_matcher}')"
     check_me

@@ -27,6 +27,10 @@ When /^testing the \(in\)visibility of an object$/ do
   end
 end
 
+When /^mathing an element by attr using single quotes$/ do
+  @result = jquery("div[id='single_element']")
+end
+
 When /^waiting for a text phrase$/ do
   selenium.execute_js("setTimeout('addText()', 1000)")
   jquery.text.should_not include("some_text")
@@ -100,5 +104,6 @@ Then /^it shows the error "(.*)"$/ do |error|
 end
 
 Then /^it matches$/ do
+  @result.class.should == JQ
   @result.should_not be_nil
 end

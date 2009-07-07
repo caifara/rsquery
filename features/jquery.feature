@@ -17,6 +17,11 @@ Feature: using jquery for selenium actions and tests
     
     Then it shows the error "too many elements found."
   
+  Scenario: Matching an element by attr using single quotes
+    When mathing an element by attr using single quotes
+    
+    Then it matches
+  
   Scenario: Getting information about a visible element
     When testing the (in)visibility of an object
     
