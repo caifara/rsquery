@@ -33,7 +33,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.requirements = ["rspec", "selenium/client"]
   s.rubygems_version = %q{1.3.1}
-  s.summary = %q{TODO}
+  s.summary = %q{The summary}
   s.test_files = [
     "spec/rSquery_spec.rb",
     "spec/spec_helper.rb"
